@@ -12,29 +12,30 @@ import Layout from "../layouts/Layout.astro";
 	<Header name={siteData.name} resumePath={siteData.resumePath} />
 
 	<main class="about section">
-		<div class="container about__container">
-			<p>Hello! 👋</p>
+		<div class="container">
+			<h1 class="about__title">Hello! <span aria-hidden="true">👋</span></h1>
+			<div class="about__body">
+				<p class="about__lead">
+					I am a full-stack web developer based in Türkiye, specializing in the broader TypeScript ecosystem.
+				</p>
 
-			<p>
-				I am a full-stack web developer based in Türkiye, specializing in the broader TypeScript ecosystem.
-			</p>
+				<p>
+					My passion lies in building complex, moving pieces into cohesive, high-performance applications.
+					I focus on architecting systems that require real-time interactions, robust background job queues, time-series data analytics, and microservice-style monorepos. I love taking a project from a blank canvas all the way to a fully orchestrated, Dockerized deployment.
+				</p>
 
-			<p>
-				My passion lies in building complex, moving pieces into cohesive, high-performance applications.
-				I focus on architecting systems that require real-time interactions, robust background job queues, time-series data analytics, and microservice-style monorepos. I love taking a project from a blank canvas all the way to a fully orchestrated, Dockerized deployment.
-			</p>
+				<p>
+					In today’s rapidly evolving development landscape, I consider myself a foundational engineer equipped with modern tools. My work is grounded in a deep understanding of underlying mechanics; whether that means optimizing PostgreSQL queries, designing secure APIs, or configuring production deployments. Every line of code I ship is intentional, and I build with a clear understanding of exactly how my systems operate under the hood.
+				</p>
 
-			<p>
-				In today’s rapidly evolving development landscape, I consider myself a foundational engineer equipped with modern tools. My work is grounded in a deep understanding of underlying mechanics; whether that means optimizing PostgreSQL queries, designing secure APIs, or configuring production deployments. Every line of code I ship is intentional, and I build with a clear understanding of exactly how my systems operate under the hood.
-			</p>
+				<p>
+					At the same time, I stay current with the latest developer tooling and can incorporate AI into my routine as a productivity multiplier. I use these tools to speed up iteration cycles, generate boilerplate, and assist in rapid debugging. Offloading the routine keystrokes allows me to drastically reduce development time and dedicate my full attention to what truly matters: architectural decisions, data modeling, and ensuring the codebase remains clean and scalable.
+				</p>
 
-			<p>
-				At the same time, I stay current with the latest developer tooling and can incorporate AI into my routine as a productivity multiplier. I use these tools to speed up iteration cycles, generate boilerplate, and assist in rapid debugging. Offloading the routine keystrokes allows me to drastically reduce development time and dedicate my full attention to what truly matters: architectural decisions, data modeling, and ensuring the codebase remains clean and scalable.
-			</p>
-
-			<p>
-				If you're looking for an engineer who combines a strong grasp of software fundamentals with the velocity of modern development practices, you're in the right place.
-			</p>
+				<p>
+					If you're looking for an engineer who combines a strong grasp of software fundamentals with the velocity of modern development practices, you're in the right place.
+				</p>
+			</div>
 		</div>
 	</main>
 
@@ -49,24 +50,41 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
 	.about {
-		padding-top: calc(var(--header-height) + 4rem);
+		padding-top: calc(var(--header-height) + 6rem);
 	}
 
-	.about__container {
+	.about__title {
+		font-family: var(--font-serif);
+		font-size: clamp(2.75rem, 8vw, 4.5rem);
+		font-weight: 400;
+		line-height: 1.05;
+		letter-spacing: -0.015em;
+	}
+
+	.about__body {
 		display: grid;
-		gap: 1.25rem;
+		gap: 1.5rem;
+		margin-top: 3rem;
 	}
 
-	.about__container p {
-		max-width: 68ch;
+	.about__body p {
+		max-width: 65ch;
 		color: var(--text-muted);
-		font-size: 1rem;
+		font-size: 1.0625rem;
 		line-height: 1.8;
+	}
+
+	.about__body .about__lead {
+		font-family: var(--font-serif);
+		font-size: clamp(1.5rem, 3.2vw, 1.875rem);
+		line-height: 1.35;
+		color: var(--text);
+		max-width: 32ch;
 	}
 
 	@media (max-width: 640px) {
 		.about {
-			padding-top: calc(var(--header-height) + 2.5rem);
+			padding-top: calc(var(--header-height) + 3rem);
 		}
 	}
 </style>

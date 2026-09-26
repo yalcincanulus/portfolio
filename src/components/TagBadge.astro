@@ -10,15 +10,19 @@ const { label } = Astro.props;
 
 <style>
 	.tag {
-		display: inline-block;
-		padding: 0.2rem 0.6rem;
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--font-mono);
 		font-size: 0.75rem;
-		font-weight: 500;
 		color: var(--text-muted);
-		background-color: var(--bg-surface);
-		border: 1px solid var(--border);
-		border-radius: 9999px;
 		white-space: nowrap;
-		line-height: 1.4;
+		line-height: 1.6;
+	}
+
+	.tag:not(:last-child)::after {
+		content: "/";
+		margin-inline: 0.5rem;
+		color: var(--text-faint);
+		opacity: 0.6;
 	}
 </style>

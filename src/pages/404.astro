@@ -15,7 +15,7 @@ import Layout from "../layouts/Layout.astro";
 			<p class="not-found__message">
 				The page you're looking for doesn't exist or has been moved.
 			</p>
-			<a href="/" class="btn btn-outline">Go home</a>
+			<a href="/" class="btn btn-primary">Go home</a>
 		</div>
 	</main>
 
@@ -44,17 +44,17 @@ import Layout from "../layouts/Layout.astro";
 	}
 
 	.not-found__code {
-		font-size: 5rem;
-		font-weight: 800;
-		letter-spacing: -0.04em;
-		line-height: 1;
-		color: var(--text-muted);
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		color: var(--accent);
 	}
 
 	.not-found__title {
-		font-size: 1.75rem;
-		font-weight: 700;
-		letter-spacing: -0.02em;
+		font-family: var(--font-serif);
+		font-size: clamp(2.75rem, 8vw, 4.5rem);
+		font-weight: 400;
+		line-height: 1.05;
+		letter-spacing: -0.015em;
 	}
 
 	.not-found__message {

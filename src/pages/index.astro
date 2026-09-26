@@ -45,8 +45,10 @@ const projectImages = Object.entries(screenshotModules).reduce<
 
 		<section class="projects section" id="projects">
 			<div class="container">
-				<h2 class="projects__title">Projects</h2>
-				<p class="projects__subtitle">One-click <strong>guest logins</strong> available for quick testing (where applicable).</p>
+				<header class="projects__header">
+					<h2 class="section-title">Selected work</h2>
+					<p class="projects__subtitle">One-click <strong>guest logins</strong> available for quick testing (where applicable).</p>
+				</header>
 				<div class="projects__grid">
 					{projects.map((project, i) => (
 						<ProjectCard
@@ -77,21 +79,20 @@ const projectImages = Object.entries(screenshotModules).reduce<
 </Layout>
 
 <style>
-	.projects__title {
-		font-size: 1.75rem;
-		font-weight: 700;
-		letter-spacing: -0.02em;
-	}
-
 	.projects__subtitle {
-		margin-top: 0.5rem;
+		margin-top: 0.75rem;
 		color: var(--text-muted);
 		font-size: 0.9375rem;
+	}
+
+	.projects__subtitle strong {
+		color: var(--text);
+		font-weight: 500;
 	}
 
 	.projects__grid {
 		display: flex;
 		flex-direction: column;
-		margin-top: 2rem;
+		margin-top: 4rem;
 	}
 </style>

@@ -14,25 +14,18 @@ const isAboutPage = Astro.url.pathname === "/about";
 		<div class="header__actions">
 			<a
 				href="/about"
-				class:list={[
-					"btn",
-					"btn-ghost",
-					"header__about",
-					isAboutPage && "header__about--active",
-				]}
+				class:list={["header__link", isAboutPage && "header__link--active"]}
+				aria-current={isAboutPage ? "page" : undefined}
 				data-track="about-click"
 			>
 				About
 			</a>
 			<a href={resumePath} target="_blank" rel="noopener noreferrer" class="btn btn-outline header__resume" data-track="resume-click">
-				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-					<polyline points="14 2 14 8 20 8" />
-					<line x1="16" y1="13" x2="8" y2="13" />
-					<line x1="16" y1="17" x2="8" y2="17" />
-					<polyline points="10 9 9 9 8 9" />
-				</svg>
 				Resume
+				<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<line x1="7" y1="17" x2="17" y2="7" />
+					<polyline points="7 7 17 7 17 17" />
+				</svg>
 			</a>
 		</div>
 	</nav>
@@ -46,10 +39,9 @@ const isAboutPage = Astro.url.pathname === "/about";
 		right: 0;
 		z-index: 100;
 		height: var(--header-height);
-		background-color: rgba(10, 10, 10, 0.8);
+		background-color: color-mix(in srgb, var(--bg) 80%, transparent);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
-		border-bottom: 1px solid var(--border);
 	}
 
 	.header__nav {
@@ -62,37 +54,29 @@ const isAboutPage = Astro.url.pathname === "/about";
 	.header__actions {
 		display: flex;
 		align-items: center;
-		gap: 0.625rem;
+		gap: 1.25rem;
 	}
 
 	.header__logo {
-		font-size: 1rem;
-		font-weight: 600;
-		letter-spacing: -0.01em;
+		font-family: var(--font-serif);
+		font-size: 1.25rem;
+		font-weight: 500;
 	}
 
-	.header__about {
-		padding-inline: 1rem;
+	.header__link {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--text-muted);
+		transition: color 0.2s ease;
 	}
 
-	.header__about--active {
+	.header__link:hover,
+	.header__link--active {
 		color: var(--text);
-		/* background-color: var(--bg-surface); */
 	}
 
-	.header__resume svg {
-		flex-shrink: 0;
-	}
-
-	@media (max-width: 640px) {
-		.header__actions {
-			gap: 0.5rem;
-		}
-
-		.header__about,
-		.header__resume {
-			padding-inline: 0.875rem;
-		}
+	.header__resume {
+		padding: 0.4375rem 0.875rem;
 	}
 </style>
 

@@ -1,8 +1,8 @@
 /** Site-wide personal information */
 export const siteData = {
 	name: "Yalçıncan Ulus",
-	title: "Yalçıncan Ulus | Web Developer",
-	description: "Full-stack developer based in Türkiye",
+	title: "Yalçıncan Ulus | Software Developer",
+	description: "Full-stack engineer based in Türkiye",
 	email:
 		"&#121;&#97;&#108;&#99;&#105;&#110;&#99;&#97;&#110;&#46;&#117;&#108;&#117;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;",
 	githubUrl: "https://github.com/yalcincanulus",

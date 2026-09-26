@@ -121,6 +121,7 @@ const hasImages = images.length > 0;
 		overflow: hidden;
 		background-color: var(--bg-surface);
 		border: 1px solid var(--border);
+		box-shadow: var(--shadow);
 	}
 
 	.carousel--empty {
@@ -166,22 +167,36 @@ const hasImages = images.length > 0;
 		align-items: center;
 		justify-content: center;
 		border-radius: 50%;
-		background-color: rgba(10, 10, 10, 0.7);
-		color: var(--text);
-		backdrop-filter: blur(4px);
-		transition: background-color 0.15s ease;
+		background-color: rgba(255, 255, 255, 0.9);
+		color: #4c4f69;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		opacity: 0;
+		transition:
+			opacity 0.2s ease,
+			background-color 0.2s ease;
+	}
+
+	.carousel:hover .carousel__btn,
+	.carousel__btn:focus-visible {
+		opacity: 1;
 	}
 
 	.carousel__btn:hover {
-		background-color: rgba(10, 10, 10, 0.9);
+		background-color: #fff;
+	}
+
+	@media (hover: none) {
+		.carousel__btn {
+			opacity: 1;
+		}
 	}
 
 	.carousel__btn--prev {
-		left: 0.5rem;
+		left: 0.75rem;
 	}
 
 	.carousel__btn--next {
-		right: 0.5rem;
+		right: 0.75rem;
 	}
 
 	.carousel__dots {
@@ -193,11 +208,9 @@ const hasImages = images.length > 0;
 	}
 
 	.carousel__dot {
-		width: 2.75rem;
-		height: 2.75rem;
-		border-radius: 50%;
+		height: 2.25rem;
 		background-color: transparent;
-		padding: 0;
+		padding: 0 0.25rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -205,15 +218,19 @@ const hasImages = images.length > 0;
 
 	.carousel__dot::after {
 		content: '';
-		width: 0.5rem;
-		height: 0.5rem;
-		border-radius: 50%;
-		background-color: rgba(255, 255, 255, 0.35);
-		transition: background-color 0.15s ease;
+		width: 0.375rem;
+		height: 0.375rem;
+		border-radius: 9999px;
+		background-color: rgba(255, 255, 255, 0.5);
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+		transition:
+			background-color 0.2s ease,
+			width 0.2s ease;
 		pointer-events: none;
 	}
 
 	.carousel__dot--active::after {
+		width: 1.25rem;
 		background-color: #fff;
 	}
 </style>
