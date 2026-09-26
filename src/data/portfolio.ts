@@ -1,6 +1,6 @@
 /** Site-wide personal information */
 export const siteData = {
-	name: "Yalçıncan Ulus",
+	name: "Y. Can Ulus",
 	title: "Yalçıncan Ulus | Web Developer",
 	description: "Full-stack developer based in Türkiye",
 	email:
@@ -35,6 +35,37 @@ export interface OtherProject {
 // MAIN PROJECTS (3-4 featured projects with screenshots)
 // ============================================================
 export const projects: Project[] = [
+	{
+		id: "project-5",
+		name: "Bitig Flow | Document Sharing & Analytics Platform",
+		tags: [
+			"TypeScript",
+			"TanStack Start",
+			"React",
+			"Node.js",
+			"TanStack DB",
+			"PostgreSQL",
+			"Drizzle ORM",
+			"Redis",
+			"S3 (Garage)",
+			"Better Auth",
+			"Docker",
+		],
+		description:
+			"Full-stack document sharing app where teams share files through secure links and see how visitors read them. DocSend / Papermark alternative.",
+		details: [
+			"Write markdown in the app or upload PDFs and images, then share one document or a group of documents through a link",
+			"Each link has its own access rules: public, password, email, or email verified with a one-time code",
+			"Link analytics show visits, unique viewers, time spent on each page, how much of each PDF visitors read, and downloads",
+			"Team workspaces with owner, admin, and member roles, plus email invitations",
+			"Security features: hashed share passwords, rate limiting, file type checks on upload, and protected file delivery",
+			"One-click demo accounts that give each reviewer a private workspace, deleted automatically after 24 hours",
+			"Admin panel with two-factor authentication to control signups, demo access, and usage limits",
+			"Containerized with Docker Compose and deployed on Hetzner",
+		],
+		githubUrl: "https://github.com/yalcincanulus/bitig-flow",
+		liveUrl: "https://bitig.ulus.uk/",
+	},
 	{
 		id: "project-4",
 		name: "Automated Price Tracking Platform",
