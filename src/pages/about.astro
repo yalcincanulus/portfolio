@@ -13,27 +13,29 @@ import Layout from "../layouts/Layout.astro";
 
 	<main class="about section">
 		<div class="container">
-			<h1 class="about__title">Hello! <span aria-hidden="true">👋</span></h1>
 			<div class="about__body">
-				<p class="about__lead">
-					I am a full-stack web developer based in Türkiye, specializing in the broader TypeScript ecosystem.
+				<h1 class="about__lead">
+					I am a full-stack engineer based in Türkiye, specializing in the broader TypeScript ecosystem.
+				</h1>
+
+				<p>
+					Although my bachelor's and master's degrees are in a different engineering field, I have always written software. For my master's thesis at Istanbul Technical University (İTÜ), I built my own custom software and used it for all of my research. With my thesis advisor, I co-authored and published a <a href="https://doi.org/10.3390/buildings13040915" target="_blank" rel="noopener noreferrer">research paper</a>. All of the analyses and simulations in that paper were done with my software. It has been cited 20+ times so far and continues to be cited regularly.
 				</p>
 
 				<p>
-					My passion lies in building complex, moving pieces into cohesive, high-performance applications.
-					I focus on architecting systems that require real-time interactions, robust background job queues, time-series data analytics, and microservice-style monorepos. I love taking a project from a blank canvas all the way to a fully orchestrated, Dockerized deployment.
+					To move into software engineering professionally, I completed the full-stack curriculum of <a href="https://www.theodinproject.com/" target="_blank" rel="noopener noreferrer">The Odin Project</a>, an open-source curriculum written and maintained by industry professionals.
 				</p>
 
 				<p>
-					In today’s rapidly evolving development landscape, I consider myself a foundational engineer equipped with modern tools. My work is grounded in a deep understanding of underlying mechanics; whether that means optimizing PostgreSQL queries, designing secure APIs, or configuring production deployments. Every line of code I ship is intentional, and I build with a clear understanding of exactly how my systems operate under the hood.
+					Since then, I have built and deployed many real-world, working applications. I use proven, industry-standard technologies as well as newer ones, and I like to follow the cutting edge of the TypeScript ecosystem. In my selected projects, you can see traditional tools like Node.js and Express alongside Bun, Elysia and the TanStack libraries.
 				</p>
 
 				<p>
-					At the same time, I stay current with the latest developer tooling and can incorporate AI into my routine as a productivity multiplier. I use these tools to speed up iteration cycles, generate boilerplate, and assist in rapid debugging. Offloading the routine keystrokes allows me to drastically reduce development time and dedicate my full attention to what truly matters: architectural decisions, data modeling, and ensuring the codebase remains clean and scalable.
+					LLMs are changing software development rapidly. They are extremely useful and save a lot of time, and almost every company now uses AI in some form. I follow developer tooling and AI as closely as I follow web development, and I have used AI to different degrees in my projects. I can work with as much or as little AI as a task calls for. I built a working <a href="https://github.com/yalcincanulus/social" target="_blank" rel="noopener noreferrer">social media platform</a>, the final project of The Odin Project, <strong>without AI</strong>. I used it occasionally in my <a href="https://github.com/yalcincanulus/price-tracking-app" target="_blank" rel="noopener noreferrer">price tracker</a> project. For my document sharing platform, <a href="https://github.com/yalcincanulus/bitig-flow" target="_blank" rel="noopener noreferrer">Bitig Flow</a>, I fully leveraged LLMs, while I made the architectural decisions and reviewed all of the code myself. Using AI well is a skill in itself, and it lets me do more in less time.
 				</p>
 
 				<p>
-					If you're looking for an engineer who combines a strong grasp of software fundamentals with the velocity of modern development practices, you're in the right place.
+					I use AI to move faster, not to do my thinking for me. If that is the kind of engineer you are looking for, I would love to hear from you.
 				</p>
 			</div>
 		</div>
@@ -53,18 +55,9 @@ import Layout from "../layouts/Layout.astro";
 		padding-top: calc(var(--header-height) + 6rem);
 	}
 
-	.about__title {
-		font-family: var(--font-serif);
-		font-size: clamp(2.75rem, 8vw, 4.5rem);
-		font-weight: 400;
-		line-height: 1.05;
-		letter-spacing: -0.015em;
-	}
-
 	.about__body {
 		display: grid;
 		gap: 1.5rem;
-		margin-top: 3rem;
 	}
 
 	.about__body p {
@@ -74,9 +67,21 @@ import Layout from "../layouts/Layout.astro";
 		line-height: 1.8;
 	}
 
+	.about__body a {
+		color: var(--text);
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
+		transition: color 0.2s ease;
+	}
+
+	.about__body a:hover {
+		color: var(--accent);
+	}
+
 	.about__body .about__lead {
 		font-family: var(--font-serif);
 		font-size: clamp(1.5rem, 3.2vw, 1.875rem);
+		font-weight: 400;
 		line-height: 1.35;
 		color: var(--text);
 		max-width: 32ch;
