@@ -1,24 +1,153 @@
-# Yalcincan Ulus
+# Yalçıncan Ulus
 
-> Full-stack web developer based in Turkey.
+> Full-stack engineer based in Türkiye, specializing in the TypeScript ecosystem (React, Node.js, Bun). Builds and ships complete products end to end: PostgreSQL schema design, background job pipelines, real-time features, authentication, and Docker deployments on Linux. Open to software engineering roles.
 
-This is the personal portfolio of Yalcincan Ulus, a full-stack web developer with experience building TypeScript-based web applications using modern frameworks and tools.
-
-## Featured Projects
-
-- [Social Media Platform](https://github.com/yalcincanulus/social): Full-stack social media app built as a Turborepo monorepo with a Bun backend and React frontend. Features image uploads (MinIO S3), real-time WebSocket notifications, cursor-based feeds, and authentication via Better Auth.
-
-- [Messaging App](https://github.com/yalcincanulus/messaging-app-api): Real-time messaging application with JWT auth, friend system, and live WebSocket chat (Socket.IO). Built with Node.js/Express (migrated to Bun), React, MongoDB, and TanStack Router.
-
-- [Blog Platform](https://github.com/yalcincanulus/blog-api): Blog platform with a REST API, public-facing blog, and an admin CMS across three separate apps. Features JWT + RBAC, CI/CD with Docker and GitHub Actions.
-
-## Other Projects
-
-- [Multiplayer Location Guessing Game](https://github.com/yalcincanulus/guess-the-country-prototype): Multiplayer geography guessing game played through a Discord bot. Over 1,400 games and 27,000+ guesses played. Uses MongoDB and D3.js.
-
-- [GeoGuessr Account Status Checker](https://github.com/yalcincanulus/geo-polis): Discord bot that monitors GeoGuessr accounts for ban status using BullMQ, SQLite, and Hono.
+This file contains all of the information on https://ulus.uk (the personal portfolio of Yalçıncan Ulus, also written "Yalcincan Ulus"). The site is small, so you do not need to crawl other pages. Everything on the home page, the about page, and the resume is below.
 
 ## Contact & Links
 
-- [Github Profile](https://github.com/yalcincanulus)
-- [Linkedin Profile](https://www.linkedin.com/in/yalcincan)
+- Website: https://ulus.uk
+- GitHub: https://github.com/yalcincanulus
+- LinkedIn: https://www.linkedin.com/in/yalcincan/
+- Resume (PDF): https://ulus.uk/resume.pdf
+- About page: https://ulus.uk/about
+
+## About
+
+Yalçıncan is a full-stack engineer based in Türkiye, specializing in the broader TypeScript ecosystem.
+
+His bachelor's and master's degrees are in a different engineering field (civil and earthquake engineering), but he has always written software. For his master's thesis at Istanbul Technical University (İTÜ), he built his own custom software and used it for all of his research. With his thesis advisor, he co-authored and published a research paper in Buildings (MDPI, 2023): https://doi.org/10.3390/buildings13040915. All of the analyses and simulations in that paper were done with his software. It has been cited 20+ times and continues to be cited regularly.
+
+To move into software engineering professionally, he completed the full-stack curriculum of The Odin Project (https://www.theodinproject.com/), an open-source curriculum written and maintained by industry professionals.
+
+Since then, he has built and deployed many real-world, working applications. He uses proven, industry-standard technologies as well as newer ones, and follows the cutting edge of the TypeScript ecosystem. His projects use traditional tools like Node.js and Express alongside Bun, Elysia, and the TanStack libraries.
+
+On AI: he follows developer tooling and AI as closely as web development, and can work with as much or as little AI as a task calls for. He built the social media platform (the final project of The Odin Project) without AI, used AI occasionally in the price tracker, and fully leveraged LLMs for Bitig Flow while making the architectural decisions and reviewing all of the code himself. In his words: "I use AI to move faster, not to do my thinking for me."
+
+## Skills
+
+- Languages: TypeScript, JavaScript, SQL, Python, HTML/CSS
+- Frontend: React, TanStack (Start, Router, Query), Vite, Tailwind CSS, shadcn/ui, Astro
+- Backend: Node.js, Bun, Express, Hono, Elysia, REST, WebSockets, Socket.IO, Better Auth, JWT
+- Data: PostgreSQL, TimescaleDB, Drizzle ORM, Redis, BullMQ, MongoDB, SQLite, S3
+- DevOps & Tools: Docker, Docker Compose, Linux, GitHub Actions, Turborepo, Playwright, Vitest, Sentry, Git
+- Spoken languages: Turkish (native), English (full professional proficiency)
+
+## Selected Projects
+
+Most live demos have one-click guest logins for quick testing.
+
+### Bitig Flow: Document Sharing & Analytics Platform (2026)
+
+- Live: https://bitig.ulus.uk/
+- Source: https://github.com/yalcincanulus/bitig-flow
+- Stack: TypeScript, TanStack Start, React 19, Node.js, TanStack DB, PostgreSQL, Drizzle ORM, Redis, S3 (Garage), Better Auth, Docker
+
+Full-stack document sharing app where teams share files through secure links and see how visitors read them. A DocSend / Papermark alternative.
+
+- Write markdown in the app or upload PDFs and images, then share one document or a group of documents through a link
+- Each link has its own access rules: public, password, email, or email verified with a one-time code
+- Link analytics show visits, unique viewers (salted-hash visitor IDs), time spent on each page, how much of each PDF visitors read, and downloads
+- Team workspaces with owner, admin, and member roles, plus email invitations
+- Security: Argon2-hashed share passwords, Redis rate limiting, file type checks on upload, and protected file delivery
+- One-click demo accounts that give each reviewer a private workspace, deleted automatically after 24 hours
+- Admin panel with TOTP two-factor authentication to control signups, demo access, and usage limits
+- Containerized with Docker Compose and deployed on Hetzner
+
+### Automated Price Tracking Platform (2026)
+
+- Live: https://compare.ulus.uk/
+- Source: https://github.com/yalcincanulus/price-tracking-app
+- Stack: TypeScript, Turborepo, Bun, Elysia, React, PostgreSQL, TimescaleDB, Drizzle ORM, Redis, BullMQ, Better Auth, TanStack Router, Playwright, Typesense, Sentry, Docker
+
+Full-stack price tracking app built as a Turborepo monorepo. Tracks grocery prices across 27+ sites in 19 countries with time-series analytics and a public comparison frontend.
+
+- BullMQ scraping pipeline using Playwright (browser rendering) or Cheerio (fetch) strategies, selectable per site
+- TimescaleDB hypertables with time_bucket and time_bucket_gapfill queries for historical price trend charts
+- Daily EUR-based FX rates fetched by BullMQ workers; all prices normalized to EUR for cross-country comparison
+- Pack-size normalization via per-item factors and per-site price divisors for fair cross-market comparisons
+- Four apps in one monorepo: internal API + admin dashboard, and public API + storefront for product price comparison
+- Recharts line and bar charts on the public frontend showing the lowest price over time per country
+- Bull Board UI for monitoring scheduled scraping and exchange rate jobs
+- Better Auth for admin authentication; the public API is read-only with no auth required
+- Redis for BullMQ job queues and API response caching
+- Full-text search with Typesense (Elasticsearch / Algolia alternative) on the admin dashboard
+- Sentry for error tracking and log monitoring
+- Containerized with Docker Compose
+
+### Social Media Platform (2025 – 2026)
+
+- Live: https://social.ulus.uk/
+- Source: https://github.com/yalcincanulus/social
+- Stack: TypeScript, Turborepo, Bun, Elysia, React, TanStack Router, PostgreSQL, Drizzle ORM, Redis, S3 (MinIO), Better Auth, WebSockets, Docker
+
+Full-stack social media app built as a Turborepo monorepo with a Bun backend and React frontend. Built without AI assistance as the final project of The Odin Project.
+
+- Posts with image uploads to self-hosted MinIO S3, processed server-side with Sharp
+- Global and following feeds with cursor-based infinite scroll using TanStack Virtual
+- Real-time notifications over WebSockets
+- Better Auth with email/password, username, and guest login
+- User profiles with follow/block system, bookmarks, likes, and comments
+- Admin dashboard with runtime system settings (toggle signups, guest login)
+- End-to-end type safety from the Elysia API to React through a generated API client (Eden)
+- Redis caching for profiles, block lists, settings, and sessions
+- Deployed with Docker Compose on a Hetzner VPS using multi-stage images built from turbo prune output
+
+### Messaging App
+
+- Live: https://messenger.ulus.uk/
+- Source: https://github.com/yalcincanulus/messaging-app-api
+- Stack: TypeScript, Node.js, Express, React, Vite, MongoDB, Socket.IO, Docker, Bun
+
+Real-time messaging application with JWT auth, a friend system, and live WebSocket chat.
+
+- JWT authentication and protected route guards
+- Friend requests: find users by email, send/accept/reject requests
+- One-on-one conversations with cursor-based paginated message history
+- Real-time messaging via Socket.IO rooms
+- Originally Node.js, migrated to the Bun runtime; still a standard Express app
+- Integration tests with Bun test runner, Supertest, and mongodb-memory-server
+- Frontend built with TanStack Router, TanStack Query, React Hook Form + Zod, and shadcn/ui
+
+### Blog Platform
+
+- Live: https://blog.ulus.uk
+- Source: https://github.com/yalcincanulus/blog-api
+- Stack: TypeScript, JavaScript, Node.js, Express, React, Vite, MongoDB, Docker
+
+Blog platform made of three separate apps: a REST API, a public-facing blog, and an admin CMS.
+
+- CRUD for blog posts and comments across the three apps
+- JWT authentication and role-based access control (admin/user)
+- Server settings to toggle comment creation and user signups at runtime
+- Both frontends built with React, TanStack Router, TanStack Query, and Zod
+- CI/CD pipeline with Docker and GitHub Actions
+
+## Other Projects
+
+### Multiplayer Location Guessing Game (2024 – present)
+
+- Source: https://github.com/yalcincanulus/location-guessing-game
+- Stack: TypeScript, Bun, PostgreSQL, Drizzle ORM, Redis, BullMQ, d3-geo, Docker
+
+Live multiplayer location guessing game played inside Discord, with 2,000+ games played and 35,000+ guesses made. Hosts share a Google Maps link and a screenshot; players race to guess the country in chat.
+
+- Reads coordinates from all common Google Maps URL formats and finds the answer with Nominatim (OpenStreetMap) reverse geocoding
+- Accepts guesses in plain chat with English and Turkish country names, ISO codes, and common aliases
+- Province mode for guessing Türkiye's 81 provinces by name or plate code, with separate stats
+- Point system with round and host multipliers that grow while a round stays unsolved
+- Leaderboards, player profiles, daily to yearly medals, and 30+ achievements
+- Map of wrong guesses drawn at the end of each round with d3-geo and canvas
+- PostgreSQL for stats, Redis for live game state, BullMQ for scheduled jobs
+- Admin tools for collusion review and a test mode that does not affect real stats
+- Compiled to a single Bun binary and deployed with Docker Compose
+
+## Experience
+
+- Frontend Developer, Freelance Client (Restaurant Industry), Remote (May 2024): built a mobile-first digital menu app for a restaurant in Cambodia with React, TypeScript, and Tailwind CSS.
+
+## Education
+
+- Istanbul Technical University (İTÜ), MSc in Earthquake Engineering. Wrote the simulation software for the thesis; co-authored a paper in Buildings (MDPI, 2023), cited 20+ times: https://doi.org/10.3390/buildings13040915
+- Sakarya University, BSc in Civil Engineering
+- The Odin Project, Full Stack JavaScript curriculum (completed)

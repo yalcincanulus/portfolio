@@ -1,8 +1,11 @@
 // @ts-check
+import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://ulus.uk",
+	integrations: [sitemap()],
 	compressHTML: true,
 	build: {
 		inlineStylesheets: "auto",
