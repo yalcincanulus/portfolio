@@ -45,6 +45,14 @@ Bun.serve({
 			return new Response("ok", { status: 200 });
 		}
 
+		// Old resume URL, kept so previously shared links still work.
+		if (pathname === "/resume.pdf") {
+			return new Response(null, {
+				status: 301,
+				headers: { Location: "/Yalcincan_Ulus_Resume.pdf" },
+			});
+		}
+
 		const resolved = await resolveFile(pathname);
 
 		if (!resolved) {

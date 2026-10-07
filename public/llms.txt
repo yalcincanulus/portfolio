@@ -9,7 +9,7 @@ This file contains all of the information on https://ulus.uk (the personal portf
 - Website: https://ulus.uk
 - GitHub: https://github.com/yalcincanulus
 - LinkedIn: https://www.linkedin.com/in/yalcincan/
-- Resume (PDF): https://ulus.uk/resume.pdf
+- Resume (PDF): https://ulus.uk/Yalcincan_Ulus_Resume.pdf
 - About page: https://ulus.uk/about
 
 ## About
