@@ -3,6 +3,7 @@ import ImageCarousel from "./ImageCarousel.astro";
 import TagBadge from "./TagBadge.astro";
 
 interface Props {
+	number: number;
 	name: string;
 	tags: string[];
 	description: string;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const {
+	number,
 	name,
 	tags,
 	description,
@@ -24,43 +26,37 @@ const {
 	aboveFold = false,
 } = Astro.props;
 
-const arrowIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>`;
+const arrowIcon = `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>`;
 ---
 
-<article class="project-card">
-	<div class="project-card__header">
-		<h3 class="project-card__name">{name}</h3>
-		<p class="project-card__description">{description}</p>
-		<div class="project-card__tags">
-			{tags.map((tag) => <TagBadge label={tag} />)}
-		</div>
-	</div>
+<article class="project">
+	<h3 class="project__name"><span class="mark">{String(number).padStart(2, "0")}</span> {name}</h3>
+	<p class="project__description">{description}</p>
 
-	<div class="project-card__actions">
-		{liveUrl && (
-			<a href={liveUrl} target="_blank" rel="noopener noreferrer" class="link" data-track="live-demo-click" data-project={name}>
-				Live demo
+	<dl class="project__meta">
+		<dt>stack</dt>
+		<dd>{tags.map((tag) => <TagBadge label={tag} />)}</dd>
+		<dt>links</dt>
+		<dd class="project__links">
+			{liveUrl && (
+				<a href={liveUrl} target="_blank" rel="noopener noreferrer" class="link" data-track="live-demo-click" data-project={name}>
+					live demo
+					<Fragment set:html={arrowIcon} />
+				</a>
+			)}
+			<a href={githubUrl} target="_blank" rel="noopener noreferrer" class="link" data-track="github-click" data-project={name}>
+				source
 				<Fragment set:html={arrowIcon} />
 			</a>
-		)}
-		<a href={githubUrl} target="_blank" rel="noopener noreferrer" class="link" data-track="github-click" data-project={name}>
-			Source code
-			<Fragment set:html={arrowIcon} />
-		</a>
-	</div>
+		</dd>
+	</dl>
 
 	<ImageCarousel images={images} projectName={name} aboveFold={aboveFold} />
 
 	{details.length > 0 && (
-		<details class="project-card__details">
-			<summary class="project-card__expand">
-				<svg class="project-card__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<line x1="12" y1="5" x2="12" y2="19" />
-					<line x1="5" y1="12" x2="19" y2="12" />
-				</svg>
-				<span>Technical details</span>
-			</summary>
-			<ul class="project-card__list">
+		<details class="toggle">
+			<summary>show details ({details.length})</summary>
+			<ul class="dash-list">
 				{details.map((item) => (
 					<li>{item}</li>
 				))}
@@ -70,101 +66,55 @@ const arrowIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" s
 </article>
 
 <style>
-	.project-card {
+	.project {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 
-	.project-card:not(:last-child) {
-		padding-bottom: 4.5rem;
-		margin-bottom: 4.5rem;
-		border-bottom: 1px solid var(--border);
+	.project:not(:last-child) {
+		margin-bottom: 4rem;
 	}
 
-	.project-card__name {
-		font-family: var(--font-serif);
-		font-size: clamp(1.625rem, 4vw, 2.125rem);
-		font-weight: 400;
-		line-height: 1.2;
-	}
-
-	.project-card__description {
-		margin-top: 0.875rem;
-		color: var(--text-muted);
-		font-size: 1.0625rem;
-		max-width: 40rem;
-	}
-
-	.project-card__tags {
-		display: flex;
-		flex-wrap: wrap;
-		row-gap: 0.125rem;
-		margin-top: 1.25rem;
-	}
-
-	.project-card__actions {
-		display: flex;
-		gap: 1.75rem;
-		flex-wrap: wrap;
-	}
-
-	/* Expandable details */
-	.project-card__expand {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		cursor: pointer;
-		font-size: 0.875rem;
+	.project__name {
+		font-size: 1rem;
 		font-weight: 500;
+		line-height: 1.5;
+	}
+
+	.project__description {
 		color: var(--text-muted);
-		list-style: none;
-		user-select: none;
-		transition: color 0.2s ease;
 	}
 
-	.project-card__expand::-webkit-details-marker {
-		display: none;
-	}
-	.project-card__expand::marker {
-		content: "";
-	}
-
-	.project-card__expand:hover {
-		color: var(--text);
+	.project__meta {
+		display: grid;
+		grid-template-columns: 4rem 1fr;
+		gap: 0.25rem 1rem;
+		font-size: 0.8125rem;
 	}
 
-	.project-card__chevron {
-		transition: transform 0.25s ease;
-		flex-shrink: 0;
+	.project__meta dt {
+		color: var(--text-faint);
 	}
 
-	.project-card__details[open] .project-card__chevron {
-		transform: rotate(45deg);
+	.project__meta dd {
+		color: var(--text-muted);
 	}
 
-	.project-card__list {
-		margin-top: 1rem;
+	.project__links {
 		display: flex;
-		flex-direction: column;
-		gap: 0.625rem;
+		flex-wrap: wrap;
+		gap: 0.25rem 1.25rem;
 	}
 
-	.project-card__list li {
-		position: relative;
-		padding-left: 1.25rem;
-		font-size: 0.9375rem;
-		color: var(--text-muted);
-		line-height: 1.55;
-	}
+	@media (max-width: 480px) {
+		.project__meta {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
 
-	.project-card__list li::before {
-		content: "";
-		position: absolute;
-		left: 0;
-		top: 0.7em;
-		width: 0.5rem;
-		height: 1px;
-		background-color: var(--accent);
+		.project__meta dd:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
 	}
 </style>

@@ -1,0 +1,20 @@
+---
+interface Props {
+	/** HTML-entity encoded email address */
+	email: string;
+	/** Link text */
+	label: string;
+	/** CSS classes on the <a> element */
+	class?: string;
+	/** aria-label override (defaults to label) */
+	ariaLabel?: string;
+}
+
+const { email, label, class: className = "link", ariaLabel } = Astro.props;
+
+// Build the full anchor as a raw HTML string.
+// `email` is already HTML-entity encoded (e.g. &#101;&#120;...).
+const html = `<a href="mailto:${email}" class="${className}" aria-label="${ariaLabel ?? label}">${label}</a>`;
+---
+
+<Fragment set:html={html} />

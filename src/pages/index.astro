@@ -67,7 +67,7 @@ const personJsonLd = {
 		is:inline
 		set:html={JSON.stringify(personJsonLd)}
 	/>
-	<Header name={siteData.name} resumePath={siteData.resumePath} />
+	<Header resumePath={siteData.resumePath} />
 
 	<main>
 		<Hero
@@ -75,30 +75,33 @@ const personJsonLd = {
 			description={siteData.description}
 			email={siteData.email}
 			githubUrl={siteData.githubUrl}
+			linkedinUrl={siteData.linkedinUrl}
+			resumePath={siteData.resumePath}
 		/>
 
-		<section class="projects section" id="projects">
-			<div class="container">
-				<header class="projects__header">
-					<h2 class="section-title">Selected work</h2>
-					<p class="projects__subtitle">One-click <strong>guest logins</strong> available for quick testing (where applicable).</p>
-				</header>
-				<div class="projects__grid">
-					{projects.map((project, i) => (
-						<ProjectCard
-							name={project.name}
-							tags={project.tags}
-							description={project.description}
-							details={project.details}
-							images={projectImages[project.id] ?? []}
-							githubUrl={project.githubUrl}
-							liveUrl={project.liveUrl}
-							aboveFold={i === 0}
-						/>
-					))}
-				</div>
+		<div class="container"><hr class="divider" /></div>
+
+		<section class="projects container" id="projects">
+			<h2 class="section-title"><span class="mark">##</span> selected work</h2>
+			<p class="comment">// one-click guest logins available where applicable</p>
+			<div class="projects__list">
+				{projects.map((project, i) => (
+					<ProjectCard
+						number={i + 1}
+						name={project.name}
+						tags={project.tags}
+						description={project.description}
+						details={project.details}
+						images={projectImages[project.id] ?? []}
+						githubUrl={project.githubUrl}
+						liveUrl={project.liveUrl}
+						aboveFold={i === 0}
+					/>
+				))}
 			</div>
 		</section>
+
+		<div class="container"><hr class="divider" /></div>
 
 		<OtherProjects projects={otherProjects} />
 	</main>
@@ -113,20 +116,15 @@ const personJsonLd = {
 </Layout>
 
 <style>
-	.projects__subtitle {
-		margin-top: 0.75rem;
-		color: var(--text-muted);
-		font-size: 0.9375rem;
+	main .divider {
+		margin-block: 3rem;
 	}
 
-	.projects__subtitle strong {
-		color: var(--text);
-		font-weight: 500;
+	.projects__list {
+		margin-top: 3.5rem;
 	}
 
-	.projects__grid {
-		display: flex;
-		flex-direction: column;
-		margin-top: 4rem;
+	#other-projects {
+		margin-bottom: 4rem;
 	}
 </style>

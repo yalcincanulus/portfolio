@@ -9,34 +9,25 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<section class="other-projects section" id="other-projects">
-	<div class="container">
-		<h2 class="section-title">Other projects</h2>
-		<p class="other-projects__subtitle">More things I've built and contributed to.</p>
-		<div class="other-projects__list">
-			{projects.map((project) => (
-				<OtherProjectItem
-					name={project.name}
-					tags={project.tags}
-					description={project.description}
-					details={project.details}
-					githubUrl={project.githubUrl}
-					liveUrl={project.liveUrl}
-				/>
-			))}
-		</div>
+<section class="other-projects container" id="other-projects">
+	<h2 class="section-title"><span class="mark">##</span> other projects</h2>
+	<p class="comment">// more things I've built and contributed to</p>
+	<div class="other-projects__list">
+		{projects.map((project) => (
+			<OtherProjectItem
+				name={project.name}
+				tags={project.tags}
+				description={project.description}
+				details={project.details}
+				githubUrl={project.githubUrl}
+				liveUrl={project.liveUrl}
+			/>
+		))}
 	</div>
 </section>
 
 <style>
-	.other-projects__subtitle {
-		margin-top: 0.75rem;
-		color: var(--text-muted);
-		font-size: 0.9375rem;
-	}
-
 	.other-projects__list {
-		margin-top: 2.5rem;
-		border-top: 1px solid var(--border);
+		margin-top: 2rem;
 	}
 </style>

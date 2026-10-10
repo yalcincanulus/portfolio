@@ -9,14 +9,15 @@ import Layout from "../layouts/Layout.astro";
 	title={`About | ${siteData.name}`}
 	description="About Yalçıncan Ulus, his approach to building products, and what he enjoys working on."
 >
-	<Header name={siteData.name} resumePath={siteData.resumePath} />
+	<Header resumePath={siteData.resumePath} />
 
-	<main class="about section">
+	<main class="about">
 		<div class="container">
 			<div class="about__body">
-				<h1 class="about__lead">
-					I am a full-stack engineer based in Türkiye, specializing in the broader TypeScript ecosystem.
-				</h1>
+				<h1 class="about__title"><span class="mark">#</span> about</h1>
+				<p class="about__lead">
+					&gt; I am a full-stack engineer based in Türkiye, specializing in the broader TypeScript ecosystem.
+				</p>
 
 				<p>
 					Although my bachelor's and master's degrees are in a different engineering field, I have always written software. For my master's thesis at Istanbul Technical University (İTÜ), I built my own custom software and used it for all of my research. With my thesis advisor, I co-authored and published a <a href="https://doi.org/10.3390/buildings13040915" target="_blank" rel="noopener noreferrer">research paper</a>. All of the analyses and simulations in that paper were done with my software. It has been cited 20+ times so far and continues to be cited regularly.
@@ -52,44 +53,47 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
 	.about {
-		padding-top: calc(var(--header-height) + 6rem);
+		padding-block: 6rem 4rem;
 	}
 
 	.about__body {
 		display: grid;
-		gap: 1.5rem;
+		gap: 1.25rem;
+	}
+
+	.about__title {
+		font-size: 1.75rem;
+		font-weight: 500;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.5rem;
 	}
 
 	.about__body p {
-		max-width: 65ch;
 		color: var(--text-muted);
-		font-size: 1.0625rem;
-		line-height: 1.8;
-	}
-
-	.about__body a {
-		color: var(--text);
-		text-decoration: underline;
-		text-underline-offset: 0.25em;
-		transition: color 0.2s ease;
-	}
-
-	.about__body a:hover {
-		color: var(--accent);
 	}
 
 	.about__body .about__lead {
-		font-family: var(--font-serif);
-		font-size: clamp(1.5rem, 3.2vw, 1.875rem);
-		font-weight: 400;
-		line-height: 1.35;
 		color: var(--text);
-		max-width: 32ch;
+		margin-bottom: 0.75rem;
+	}
+
+	.about__body a {
+		color: var(--accent);
+		text-underline-offset: 0.25em;
+	}
+
+	.about__body a:hover {
+		text-decoration: underline;
+	}
+
+	.about__body strong {
+		color: var(--text);
+		font-weight: 500;
 	}
 
 	@media (max-width: 640px) {
 		.about {
-			padding-top: calc(var(--header-height) + 3rem);
+			padding-top: 4rem;
 		}
 	}
 </style>

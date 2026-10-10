@@ -2,14 +2,14 @@
 
 > Full-stack engineer based in Türkiye, specializing in the TypeScript ecosystem (React, Node.js, Bun). Builds and ships complete products end to end: PostgreSQL schema design, background job pipelines, real-time features, authentication, and Docker deployments on Linux. Open to software engineering roles.
 
-This file contains all of the information on https://ulus.uk (the personal portfolio of Yalçıncan Ulus, also written "Yalcincan Ulus"). The site is small, so you do not need to crawl other pages. Everything on the home page, the about page, and the resume is below.
+This file contains all of the information on https://ulus.uk (the personal portfolio of Yalçıncan Ulus, also written "Yalcincan Ulus"). The site is small, so you do not need to crawl other pages. Everything on the home page, the about page, and the resume/CV is below.
 
 ## Contact & Links
 
 - Website: https://ulus.uk
 - GitHub: https://github.com/yalcincanulus
 - LinkedIn: https://www.linkedin.com/in/yalcincan/
-- Resume (PDF): https://ulus.uk/Yalcincan_Ulus_Resume.pdf
+- Resume/CV (PDF): https://ulus.uk/Yalcincan_Ulus_Resume.pdf
 - About page: https://ulus.uk/about
 
 ## About

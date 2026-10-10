@@ -1,0 +1,36 @@
+---
+import MailtoLink from "./MailtoLink.astro";
+
+interface Props {
+	email: string;
+	githubUrl: string;
+	linkedinUrl: string;
+	resumePath: string;
+}
+
+const { email, githubUrl, linkedinUrl, resumePath } = Astro.props;
+---
+
+<ul class="contact-links">
+	<li><MailtoLink email={email} label="email" ariaLabel="Send email" /></li>
+	<li><a href={githubUrl} target="_blank" rel="noopener noreferrer" class="link" aria-label="GitHub profile" data-track="github-profile-click">github</a></li>
+	<li><a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="link" aria-label="LinkedIn profile">linkedin</a></li>
+	<li><a href={resumePath} target="_blank" rel="noopener noreferrer" class="link" aria-label="Resume/CV (PDF, opens in a new tab)" data-track="resume-click">resume/CV (pdf)<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg></a></li>
+</ul>
+
+<style>
+	.contact-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 0.75rem;
+		color: var(--text-faint);
+	}
+
+	.contact-links li::before {
+		content: "[";
+	}
+
+	.contact-links li::after {
+		content: "]";
+	}
+</style>

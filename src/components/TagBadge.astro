@@ -4,25 +4,15 @@ interface Props {
 }
 
 const { label } = Astro.props;
+// The trailing space after the tag gives long stack lists a place to wrap.
 ---
 
-<span class="tag">{label}</span>
+<span class="tag">{label}</span>{" "}
 
 <style>
-	.tag {
-		display: inline-flex;
-		align-items: center;
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		white-space: nowrap;
-		line-height: 1.6;
-	}
-
-	.tag:not(:last-child)::after {
-		content: "/";
-		margin-inline: 0.5rem;
+	.tag:not(:last-of-type)::after {
+		content: "·";
+		margin-left: 0.5em;
 		color: var(--text-faint);
-		opacity: 0.6;
 	}
 </style>

@@ -1,16 +1,15 @@
 ---
 interface Props {
-	name: string;
 	resumePath: string;
 }
 
-const { name, resumePath } = Astro.props;
+const { resumePath } = Astro.props;
 const isAboutPage = Astro.url.pathname === "/about";
 ---
 
 <header class="header">
 	<nav class="header__nav container">
-		<a href="/" class="header__logo" id="header-logo">{name}</a>
+		<a href="/" class="header__logo" id="header-logo">~/ulus.uk</a>
 		<div class="header__actions">
 			<a
 				href="/about"
@@ -18,14 +17,11 @@ const isAboutPage = Astro.url.pathname === "/about";
 				aria-current={isAboutPage ? "page" : undefined}
 				data-track="about-click"
 			>
-				About
+				about
 			</a>
-			<a href={resumePath} target="_blank" rel="noopener noreferrer" class="btn btn-outline header__resume" data-track="resume-click">
-				Resume
-				<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-					<line x1="7" y1="17" x2="17" y2="7" />
-					<polyline points="7 7 17 7 17 17" />
-				</svg>
+			<a href={resumePath} target="_blank" rel="noopener noreferrer" class="header__link" aria-label="Resume/CV (PDF, opens in a new tab)" data-track="resume-click">
+				resume/CV (pdf)
+				<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" /></svg>
 			</a>
 		</div>
 	</nav>
@@ -33,50 +29,49 @@ const isAboutPage = Astro.url.pathname === "/about";
 
 <style>
 	.header {
-		position: fixed;
+		position: sticky;
 		top: 0;
-		left: 0;
-		right: 0;
 		z-index: 100;
-		height: var(--header-height);
-		background-color: color-mix(in srgb, var(--bg) 80%, transparent);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
+		background-color: var(--bg);
+		border-bottom: 1px dashed var(--border);
 	}
 
 	.header__nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 100%;
+		flex-wrap: wrap;
+		gap: 0.25rem 1.25rem;
+		padding-block: 1rem;
+	}
+
+	.header__logo,
+	.header__link {
+		color: var(--text-faint);
+		transition: color 0.2s ease;
 	}
 
 	.header__actions {
 		display: flex;
-		align-items: center;
 		gap: 1.25rem;
 	}
 
-	.header__logo {
-		font-family: var(--font-serif);
-		font-size: 1.25rem;
-		font-weight: 500;
-	}
-
 	.header__link {
-		font-size: 0.875rem;
-		font-weight: 500;
-		color: var(--text-muted);
-		transition: color 0.2s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		color: var(--accent);
+		white-space: nowrap;
 	}
 
-	.header__link:hover,
+	.header__logo:hover,
 	.header__link--active {
 		color: var(--text);
 	}
 
-	.header__resume {
-		padding: 0.4375rem 0.875rem;
+	.header__link:hover {
+		text-decoration: underline;
+		text-underline-offset: 0.25em;
 	}
 </style>
 
