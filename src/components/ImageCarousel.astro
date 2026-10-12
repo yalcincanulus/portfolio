@@ -23,6 +23,7 @@ const hasImages = images.length > 0;
 						height={450}
 						quality={80}
 						loading={aboveFold && i <= 1 ? "eager" : "lazy"}
+						fetchpriority={aboveFold && i === 0 ? "high" : undefined}
 						class="carousel__image"
 					/>
 				</div>
@@ -207,7 +208,9 @@ const hasImages = images.length > 0;
 		display: flex;
 	}
 
+	/* min-width keeps each dot a 24px touch target */
 	.carousel__dot {
+		min-width: 1.5rem;
 		height: 2.25rem;
 		background-color: transparent;
 		padding: 0 0.25rem;

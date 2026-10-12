@@ -6,19 +6,19 @@ This file contains all of the information on https://ulus.uk (the personal portf
 
 ## Contact & Links
 
-- Website: https://ulus.uk
-- GitHub: https://github.com/yalcincanulus
-- LinkedIn: https://www.linkedin.com/in/yalcincan/
-- Resume/CV (PDF): https://ulus.uk/Yalcincan_Ulus_Resume.pdf
-- About page: https://ulus.uk/about/
+- [Website](https://ulus.uk)
+- [GitHub](https://github.com/yalcincanulus)
+- [LinkedIn](https://www.linkedin.com/in/yalcincan/)
+- [Resume/CV (PDF)](https://ulus.uk/Yalcincan_Ulus_Resume.pdf)
+- [About page](https://ulus.uk/about/)
 
 ## About
 
 Yalçıncan is a full-stack engineer based in Türkiye, specializing in the broader TypeScript ecosystem.
 
-His bachelor's and master's degrees are in a different engineering field (civil and earthquake engineering), but he has always written software. For his master's thesis at Istanbul Technical University (İTÜ), he built his own custom software and used it for all of his research. With his thesis advisor, he co-authored and published a research paper in Buildings (MDPI, 2023): https://doi.org/10.3390/buildings13040915. All of the analyses and simulations in that paper were done with his software. It has been cited 20+ times and continues to be cited regularly.
+His bachelor's and master's degrees are in a different engineering field (civil and earthquake engineering), but he has always written software. For his master's thesis at Istanbul Technical University (İTÜ), he built his own custom software and used it for all of his research. With his thesis advisor, he co-authored and published a [research paper in Buildings (MDPI, 2023)](https://doi.org/10.3390/buildings13040915). All of the analyses and simulations in that paper were done with his software. It has been cited 20+ times and continues to be cited regularly.
 
-To move into software engineering professionally, he completed the full-stack curriculum of The Odin Project (https://www.theodinproject.com/), an open-source curriculum written and maintained by industry professionals.
+To move into software engineering professionally, he completed the full-stack curriculum of [The Odin Project](https://www.theodinproject.com/), an open-source curriculum written and maintained by industry professionals.
 
 Since then, he has built and deployed many real-world, working applications. He uses proven, industry-standard technologies as well as newer ones, and follows the cutting edge of the TypeScript ecosystem. His projects use traditional tools like Node.js and Express alongside Bun, Elysia, and the TanStack libraries.
 
@@ -39,8 +39,8 @@ Most live demos have one-click guest logins for quick testing.
 
 ### Bitig Flow: Document Sharing & Analytics Platform (2026)
 
-- Live: https://bitig.ulus.uk/
-- Source: https://github.com/yalcincanulus/bitig-flow
+- [Live](https://bitig.ulus.uk/)
+- [Source](https://github.com/yalcincanulus/bitig-flow)
 - Stack: TypeScript, TanStack Start, React 19, Node.js, TanStack DB, PostgreSQL, Drizzle ORM, Redis, S3 (Garage), Better Auth, Docker
 
 Full-stack document sharing app where teams share files through secure links and see how visitors read them. A DocSend / Papermark alternative.
@@ -56,8 +56,8 @@ Full-stack document sharing app where teams share files through secure links and
 
 ### Automated Price Tracking Platform (2026)
 
-- Live: https://compare.ulus.uk/
-- Source: https://github.com/yalcincanulus/price-tracking-app
+- [Live](https://compare.ulus.uk/)
+- [Source](https://github.com/yalcincanulus/price-tracking-app)
 - Stack: TypeScript, Turborepo, Bun, Elysia, React, PostgreSQL, TimescaleDB, Drizzle ORM, Redis, BullMQ, Better Auth, TanStack Router, Playwright, Typesense, Sentry, Docker
 
 Full-stack price tracking app built as a Turborepo monorepo. Tracks grocery prices across 27+ sites in 19 countries with time-series analytics and a public comparison frontend.
@@ -77,8 +77,8 @@ Full-stack price tracking app built as a Turborepo monorepo. Tracks grocery pric
 
 ### Social Media Platform (2025 – 2026)
 
-- Live: https://social.ulus.uk/
-- Source: https://github.com/yalcincanulus/social
+- [Live](https://social.ulus.uk/)
+- [Source](https://github.com/yalcincanulus/social)
 - Stack: TypeScript, Turborepo, Bun, Elysia, React, TanStack Router, PostgreSQL, Drizzle ORM, Redis, S3 (MinIO), Better Auth, WebSockets, Docker
 
 Full-stack social media app built as a Turborepo monorepo with a Bun backend and React frontend. Built without AI assistance as the final project of The Odin Project.
@@ -95,8 +95,8 @@ Full-stack social media app built as a Turborepo monorepo with a Bun backend and
 
 ### Messaging App
 
-- Live: https://messenger.ulus.uk/
-- Source: https://github.com/yalcincanulus/messaging-app-api
+- [Live](https://messenger.ulus.uk/)
+- [Source](https://github.com/yalcincanulus/messaging-app-api)
 - Stack: TypeScript, Node.js, Express, React, Vite, MongoDB, Socket.IO, Docker, Bun
 
 Real-time messaging application with JWT auth, a friend system, and live WebSocket chat.
@@ -111,8 +111,8 @@ Real-time messaging application with JWT auth, a friend system, and live WebSock
 
 ### Blog Platform
 
-- Live: https://blog.ulus.uk
-- Source: https://github.com/yalcincanulus/blog-api
+- [Live](https://blog.ulus.uk)
+- [Source](https://github.com/yalcincanulus/blog-api)
 - Stack: TypeScript, JavaScript, Node.js, Express, React, Vite, MongoDB, Docker
 
 Blog platform made of three separate apps: a REST API, a public-facing blog, and an admin CMS.
@@ -127,7 +127,7 @@ Blog platform made of three separate apps: a REST API, a public-facing blog, and
 
 ### Multiplayer Location Guessing Game (2024 – present)
 
-- Source: https://github.com/yalcincanulus/location-guessing-game
+- [Source](https://github.com/yalcincanulus/location-guessing-game)
 - Stack: TypeScript, Bun, PostgreSQL, Drizzle ORM, Redis, BullMQ, d3-geo, Docker
 
 Live multiplayer location guessing game played inside Discord, with 2,000+ games played and 35,000+ guesses made. Hosts share a Google Maps link and a screenshot; players race to guess the country in chat.
@@ -148,6 +148,6 @@ Live multiplayer location guessing game played inside Discord, with 2,000+ games
 
 ## Education
 
-- Istanbul Technical University (İTÜ), MSc in Earthquake Engineering. Wrote the simulation software for the thesis; co-authored a paper in Buildings (MDPI, 2023), cited 20+ times: https://doi.org/10.3390/buildings13040915
+- Istanbul Technical University (İTÜ), MSc in Earthquake Engineering. Wrote the simulation software for the thesis; co-authored a [paper in Buildings (MDPI, 2023)](https://doi.org/10.3390/buildings13040915), cited 20+ times
 - Sakarya University, BSc in Civil Engineering
 - The Odin Project, Full Stack JavaScript curriculum (completed)

@@ -66,7 +66,7 @@ button {
 	--border: #e6e6e6;
 	--text: #1a1a1a;
 	--text-muted: #555555;
-	--text-faint: #9a9a9a;
+	--text-faint: #737373;
 	--accent: #15803d;
 	--shadow: none;
 	--radius-sm: 0.25rem;
@@ -81,7 +81,7 @@ button {
 		--border: #262626;
 		--text: #e6e6e6;
 		--text-muted: #a3a3a3;
-		--text-faint: #5f5f5f;
+		--text-faint: #7d7d7d;
 		--accent: #4ade80;
 	}
 }

@@ -8,7 +8,8 @@ export default defineConfig({
 	integrations: [sitemap()],
 	compressHTML: true,
 	build: {
-		inlineStylesheets: "auto",
+		// The site's CSS is small; inlining it removes render-blocking requests
+		inlineStylesheets: "always",
 	},
 	fonts: [
 		{

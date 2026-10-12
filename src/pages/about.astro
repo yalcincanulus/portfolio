@@ -97,13 +97,17 @@ const jsonLd = profilePageJsonLd(
 		margin-bottom: 0.75rem;
 	}
 
+	/* Underlined so links stand out from body text without relying on color */
 	.about__body a {
 		color: var(--accent);
+		text-decoration: underline;
+		text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
 		text-underline-offset: 0.25em;
+		transition: text-decoration-color 0.2s ease;
 	}
 
 	.about__body a:hover {
-		text-decoration: underline;
+		text-decoration-color: var(--accent);
 	}
 
 	.about__name-note summary {
