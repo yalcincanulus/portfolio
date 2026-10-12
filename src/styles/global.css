@@ -100,6 +100,15 @@ button {
 	font-weight: 400;
 }
 
+/* Decorative heading prefix drawn in CSS, e.g. data-mark="#", so it stays out
+   of the heading text that search engines and screen readers read */
+[data-mark]::before {
+	content: attr(data-mark) " ";
+	content: attr(data-mark) " " / "";
+	color: var(--text-faint);
+	font-weight: 400;
+}
+
 .comment {
 	color: var(--text-faint);
 }

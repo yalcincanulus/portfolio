@@ -4,7 +4,8 @@ interface Props {
 }
 
 const { resumePath } = Astro.props;
-const isAboutPage = Astro.url.pathname === "/about";
+// Static builds use "/about/", the dev server uses "/about"
+const isAboutPage = Astro.url.pathname.replace(/\/$/, "") === "/about";
 ---
 
 <header class="header">
@@ -12,7 +13,7 @@ const isAboutPage = Astro.url.pathname === "/about";
 		<a href="/" class="header__logo" id="header-logo">~/ulus.uk</a>
 		<div class="header__actions">
 			<a
-				href="/about"
+				href="/about/"
 				class:list={["header__link", isAboutPage && "header__link--active"]}
 				aria-current={isAboutPage ? "page" : undefined}
 				data-track="about-click"

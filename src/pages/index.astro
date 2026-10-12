@@ -5,6 +5,7 @@ import Hero from "../components/Hero.astro";
 import OtherProjects from "../components/OtherProjects.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { otherProjects, projects, siteData } from "../data/portfolio";
+import { homeJsonLd } from "../data/structuredData";
 import Layout from "../layouts/Layout.astro";
 
 const screenshotModules = import.meta.glob(
@@ -30,42 +31,14 @@ const projectImages = Object.entries(screenshotModules).reduce<
 
 	return imagesByProject;
 }, {});
-
-const personJsonLd = {
-	"@context": "https://schema.org",
-	"@type": "ProfilePage",
-	mainEntity: {
-		"@type": "Person",
-		name: siteData.name,
-		alternateName: "Yalcincan Ulus",
-		url: Astro.site?.href,
-		jobTitle: "Full-Stack Engineer",
-		description: siteData.description,
-		address: { "@type": "PostalAddress", addressCountry: "TR" },
-		alumniOf: [
-			{ "@type": "CollegeOrUniversity", name: "Istanbul Technical University" },
-			{ "@type": "CollegeOrUniversity", name: "Sakarya University" },
-		],
-		knowsLanguage: ["Turkish", "English"],
-		knowsAbout: [
-			"TypeScript",
-			"React",
-			"Node.js",
-			"Bun",
-			"PostgreSQL",
-			"Full-stack web development",
-		],
-		sameAs: [siteData.githubUrl, siteData.linkedinUrl],
-	},
-};
 ---
 
-<Layout title={siteData.title} description={siteData.description}>
+<Layout title={siteData.title} description={siteData.metaDescription}>
 	<script
 		slot="head"
 		type="application/ld+json"
 		is:inline
-		set:html={JSON.stringify(personJsonLd)}
+		set:html={JSON.stringify(homeJsonLd)}
 	/>
 	<Header resumePath={siteData.resumePath} />
 
@@ -82,7 +55,7 @@ const personJsonLd = {
 		<div class="container"><hr class="divider" /></div>
 
 		<section class="projects container" id="projects">
-			<h2 class="section-title"><span class="mark">##</span> selected work</h2>
+			<h2 class="section-title" data-mark="##">selected work</h2>
 			<p class="comment">// one-click guest logins available where applicable</p>
 			<div class="projects__list">
 				{projects.map((project, i) => (

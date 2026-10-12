@@ -2,19 +2,32 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { siteData } from "../data/portfolio";
+import { profilePageJsonLd } from "../data/structuredData";
 import Layout from "../layouts/Layout.astro";
+
+const title = `About ${siteData.name}`;
+const jsonLd = profilePageJsonLd(
+	new URL(Astro.url.pathname, Astro.site),
+	title,
+);
 ---
 
 <Layout
-	title={`About | ${siteData.name}`}
+	title={title}
 	description="About Yalçıncan Ulus, his approach to building products, and what he enjoys working on."
 >
+	<script
+		slot="head"
+		type="application/ld+json"
+		is:inline
+		set:html={JSON.stringify(jsonLd)}
+	/>
 	<Header resumePath={siteData.resumePath} />
 
 	<main class="about">
 		<div class="container">
 			<div class="about__body">
-				<h1 class="about__title"><span class="mark">#</span> about</h1>
+				<h1 class="about__title" data-mark="#">about {siteData.name}</h1>
 				<p class="about__lead">
 					&gt; I am a full-stack engineer based in Türkiye, specializing in the broader TypeScript ecosystem.
 				</p>
@@ -38,6 +51,13 @@ import Layout from "../layouts/Layout.astro";
 				<p>
 					I use AI to move faster, not to do my thinking for me. If that is the kind of engineer you are looking for, I would love to hear from you.
 				</p>
+
+				<details class="toggle about__name-note">
+					<summary>how to spell my name</summary>
+					<p>
+						My first name is Yalçıncan, written as one word, or Yalcincan without Turkish characters. Yalçın and Can are both common Turkish names on their own, so people often mistakenly split it and write "Yalçın Can Ulus".
+					</p>
+				</details>
 			</div>
 		</div>
 	</main>
@@ -84,6 +104,18 @@ import Layout from "../layouts/Layout.astro";
 
 	.about__body a:hover {
 		text-decoration: underline;
+	}
+
+	.about__name-note summary {
+		color: var(--text-faint);
+	}
+
+	.about__name-note summary:hover {
+		color: var(--text);
+	}
+
+	.about__name-note p {
+		margin-top: 0.75rem;
 	}
 
 	.about__body strong {

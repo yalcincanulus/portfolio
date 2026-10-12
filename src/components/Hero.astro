@@ -14,7 +14,7 @@ const { name, description, ...contact } = Astro.props;
 ---
 
 <section class="hero container" id="hero">
-	<h1 class="hero__name"><span class="mark">#</span> {name}</h1>
+	<h1 class="hero__name" data-mark="#">{name}</h1>
 	<p class="hero__description">&gt; {description}.</p>
 	<div class="hero__links">
 		<ContactLinks {...contact} />
