@@ -207,6 +207,30 @@ export const projects: Project[] = [
 
 export const otherProjects: OtherProject[] = [
 	{
+		name: "Synth Playground",
+		tags: [
+			"Svelte",
+			"TypeScript",
+			"Web Audio",
+			"AudioWorklet",
+			"Web MIDI",
+			"Bun",
+			"Vite",
+			"Docker",
+		],
+		description:
+			"Synthesizer in the browser, built for learning synthesis by playing. Sounds are patched by dragging cables in a signal-flow view.",
+		details: [
+			"Two oscillators, two filters, four envelopes, three LFOs, and an 8-route mod matrix",
+			"Eight effects, a drum kit with a 16-step sequencer, and a 3D wavetable view",
+			"Sound generation with the Web Audio API and AudioWorklet",
+			"Plays from mouse, computer keyboard, or an Arturia MiniLab 3 over Web MIDI",
+			"Factory presets, including recreations of famous synths, and a course with recipes",
+		],
+		githubUrl: "https://github.com/yalcincanulus/synth-playground",
+		liveUrl: "https://synth.ulus.uk/",
+	},
+	{
 		name: "Multiplayer Location Guessing Game",
 		tags: [
 			"TypeScript",
